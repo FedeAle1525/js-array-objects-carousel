@@ -1,19 +1,65 @@
 // 1. Creo un Array di immagini
-const arrayImg = ["./img/01.jpg", "./img/02.jpg", "./img/03.jpg", "./img/04.jpg", "./img/05.jpg"];
-console.log(arrayImg);
+const slides = [
+  
+  {
+    image: "./img/01.jpg",
+    title: 'Lago di Como',
+    text: 'Il luogo ideale se adori pescare'
+  },
+
+  {
+    image: "./img/02.jpg",
+    title: `Lago d'Iseo`,
+    text: 'Il luogo ideale per chi ama la natura'
+  },
+
+  {
+    image: "./img/03.jpg",
+    title: `Londra`,
+    text: 'Fatti amaliare dal fascino inglese'
+  },
+
+  {
+    image: "./img/04.jpg",
+    title: `Parigi`,
+    text: 'Ideale per una vacanza romantica'
+  },
+
+  {
+    image: "./img/05.jpg",
+    title: `Caraibi`,
+    text: 'Un luogo paradisiaco che non vorrai lasciare'
+  }
+
+];
+
+console.log(slides);
 
 // 2. Recuperiamo l'elemento "carosello" 
 const carosello = document.getElementById('carousel');
 
-// // 3. Creo Markup HTML utilizzando Ciclo For
-// for (let i = 0; i < arrayImg.length; i++){
-//   const srcImgs = arrayImg[i]
+// 3. Creo Markup HTML utilizzando Ciclo For
+for (let i = 0; i < slides.length; i++){
+  // const srcImg = slides[i].image;
+  // const titleImg = slides[i].title;
+  // const textImg = slides[i].text;
 
-//   const htmlSlide = '<div class="slide"><img src="' + srcImgs + '" alt=""></div>';
-//   console.log("Slide: ", htmlSlide);
+  const slideEl = document.createElement('div');
+  slideEl.classList.add('slide');
 
-//   carosello.innerHTML += htmlSlide;
-// }
+  const htmlSlide = 
+  `<img src=${slides[i].image} alt="">
+  <div class="slide-text">
+    <h4>${slides[i].title}</h4>
+    <p>${slides[i].text}</p>
+  </div>`;
+
+  slideEl.innerHTML = htmlSlide;
+
+  console.log("Slide: ", htmlSlide);
+
+  carosello.append(slideEl);
+}
 
 // 4. Prendo tutti gli elementi con classe "slide" da Html
 const slideElements = document.getElementsByClassName('slide');
