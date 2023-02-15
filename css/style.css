@@ -1,0 +1,39 @@
+/* RESET */
+
+img{
+  max-width: 100%;
+}
+
+/* GENERALE */
+
+.carousel{
+  position: relative;
+}
+
+/* SLIDE */
+
+.slide.active{
+  display: block;
+}
+
+.slide{
+  display: none;
+}
+
+/* PULSANTI FRECCIA */
+
+.arrow{
+  position: absolute;
+  font-size: 40px;
+  color: white;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.arrow .arrow-left{
+  margin-left: 20px;
+}
+
+.arrow .arrow-right{
+  margin-right: 20px;
+}
