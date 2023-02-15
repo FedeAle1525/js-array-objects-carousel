@@ -14,10 +14,21 @@ img{
 
 .slide.active{
   display: block;
+  position: relative;
 }
 
 .slide{
   display: none;
+}
+
+.slide-text{
+  color: white;
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 10px;
+  text-align: right;
+  position: absolute;
+  bottom: 0;
+  right: 0;
 }
 
 /* PULSANTI FRECCIA */

@@ -5,15 +5,15 @@ console.log(arrayImg);
 // 2. Recuperiamo l'elemento "carosello" 
 const carosello = document.getElementById('carousel');
 
-// 3. Creo Markup HTML utilizzando Ciclo For
-for (let i = 0; i < arrayImg.length; i++){
-  const srcImgs = arrayImg[i]
+// // 3. Creo Markup HTML utilizzando Ciclo For
+// for (let i = 0; i < arrayImg.length; i++){
+//   const srcImgs = arrayImg[i]
 
-  const htmlSlide = '<div class="slide"><img src="' + srcImgs + '" alt=""></div>';
-  console.log("Slide: ", htmlSlide);
+//   const htmlSlide = '<div class="slide"><img src="' + srcImgs + '" alt=""></div>';
+//   console.log("Slide: ", htmlSlide);
 
-  carosello.innerHTML += htmlSlide;
-}
+//   carosello.innerHTML += htmlSlide;
+// }
 
 // 4. Prendo tutti gli elementi con classe "slide" da Html
 const slideElements = document.getElementsByClassName('slide');
