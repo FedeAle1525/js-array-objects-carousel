@@ -1,0 +1,51 @@
+/* RESET */
+
+img{
+  max-width: 100%;
+}
+
+/* GENERALE */
+
+.carousel{
+  position: relative;
+}
+
+/* SLIDE */
+
+.slide.active{
+  display: block;
+  position: relative;
+}
+
+.slide{
+  display: none;
+}
+
+.slide-text{
+  color: white;
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 10px;
+  text-align: right;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+/* PULSANTI FRECCIA */
+
+.arrow{
+  position: absolute;
+  font-size: 40px;
+  color: white;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 999;
+}
+
+.arrow .arrow-left{
+  margin-left: 20px;
+}
+
+.arrow .arrow-right{
+  margin-right: 20px;
+}
