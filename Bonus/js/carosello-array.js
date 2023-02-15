@@ -76,7 +76,21 @@ const rightBtnArrow = document.getElementById('arrow-right');
 console.log(leftBtnArrow,rightBtnArrow);
 
 // 7. Creo evento sul "pulsante freccia destro": scorrere le immagini al "click"
-rightBtnArrow.addEventListener('click', function(){
+rightBtnArrow.addEventListener('click', nextSlide);
+
+// BONUS 3 (Punto 1) - Aggiungere funzionalita' AutoPlay che passa alla slide successiva ogni 3 secondi
+const clock = setInterval(nextSlide,3000);
+
+// 9. Creo evento sul "pulsante freccia sinistro": scorrere le immagini al click
+leftBtnArrow.addEventListener('click', previousSlide);
+
+
+
+// ***************************
+// Funzione "nextSlide"
+// ***************************
+
+function nextSlide(){
 
   // 7.2 - Recupero Slide Corrente e tolgo la classe "active"
   let currentSlide = slideElements[indexCurrentSlide];
@@ -94,11 +108,13 @@ rightBtnArrow.addEventListener('click', function(){
   let nextSlide = slideElements[indexCurrentSlide];
   nextSlide.classList.add('active');
   console.log("Slide Successiva: " + indexCurrentSlide);
+}
 
-});
+// ***************************
+// Funzione "previousSlide"
+// ***************************
 
-// 9. Creo evento sul "pulsante freccia sinistro": scorrere le immagini al click
-leftBtnArrow.addEventListener('click', function(){
+function previousSlide(){
 
   // 9.2 - Recupero Slide Corrente e tolgo la classe "active"
   let currentSlide = slideElements[indexCurrentSlide];
@@ -116,6 +132,5 @@ leftBtnArrow.addEventListener('click', function(){
   prevSlide = slideElements[indexCurrentSlide];
   prevSlide.classList.add('active');
   console.log("Slide Precedente: " + indexCurrentSlide);
-
-});
+}
 
