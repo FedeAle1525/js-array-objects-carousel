@@ -39,19 +39,39 @@ console.log(slides);
 const carosello = document.getElementById('carousel');
 
 // 3. Creo Markup HTML utilizzando Ciclo For
-for (let i = 0; i < slides.length; i++){
-  // const srcImg = slides[i].image;
-  // const titleImg = slides[i].title;
-  // const textImg = slides[i].text;
+// for (let i = 0; i < slides.length; i++){
+//   // const srcImg = slides[i].image;
+//   // const titleImg = slides[i].title;
+//   // const textImg = slides[i].text;
+
+//   const slideEl = document.createElement('div');
+//   slideEl.classList.add('slide');
+
+//   const htmlSlide = 
+//   `<img src=${slides[i].image} alt="">
+//   <div class="slide-text">
+//     <h4>${slides[i].title}</h4>
+//     <p>${slides[i].text}</p>
+//   </div>`;
+
+//   slideEl.innerHTML = htmlSlide;
+
+//   console.log("Slide: ", htmlSlide);
+
+//   carosello.append(slideEl);
+// }
+
+// 3. Creo Markup HTML utilizzando Ciclo ForEach
+slides.forEach((slide) => {
 
   const slideEl = document.createElement('div');
   slideEl.classList.add('slide');
 
   const htmlSlide = 
-  `<img src=${slides[i].image} alt="">
+  `<img src=${slide.image} alt="">
   <div class="slide-text">
-    <h4>${slides[i].title}</h4>
-    <p>${slides[i].text}</p>
+    <h4>${slide.title}</h4>
+    <p>${slide.text}</p>
   </div>`;
 
   slideEl.innerHTML = htmlSlide;
@@ -59,7 +79,8 @@ for (let i = 0; i < slides.length; i++){
   console.log("Slide: ", htmlSlide);
 
   carosello.append(slideEl);
-}
+
+})
 
 // 4. Prendo tutti gli elementi con classe "slide" da Html
 const slideElements = document.getElementsByClassName('slide');
