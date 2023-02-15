@@ -78,12 +78,39 @@ console.log(leftBtnArrow,rightBtnArrow);
 // 7. Creo evento sul "pulsante freccia destro": scorrere le immagini al "click"
 rightBtnArrow.addEventListener('click', nextSlide);
 
-// BONUS 3 (Punto 1) - Aggiungere funzionalita' AutoPlay che passa alla slide successiva ogni 3 secondi
-const clock = setInterval(nextSlide,3000);
-
 // 9. Creo evento sul "pulsante freccia sinistro": scorrere le immagini al click
 leftBtnArrow.addEventListener('click', previousSlide);
 
+// BONUS 3 - Autoplay
+
+// Recupero Elementi Pulsanti dal DOM
+const btnPlay = document.querySelector('.btn-success');
+const btnStop = document.querySelector('.btn-danger');
+const btnRotate = document.querySelector('.btn-warning');
+let clock;
+
+// Creo evento "click" su pulsante Play che avvia AutoPlay
+btnPlay.addEventListener("click", function(){
+
+  // Funzionalita' AutoPlay che passa alla slide successiva ogni 3 secondi
+  clock = setInterval(nextSlide,3000);
+
+});
+
+// Creo evento "click" su pulsante Stop che avvia AutoPlay
+btnStop.addEventListener("click", function(){
+
+  // Interrompo il 'setInterval' per fermare Autoplay
+  clearInterval(clock);
+
+});
+
+// Creo evento "click" su pulsante Rotate che inverte lo scorrimento dell'AutoPlay
+btnRotate.addEventListener("click", function(){
+
+  // Funzionalita' AutoPlay che passa alla slide precedente ogni 3 secondi
+  clock = setInterval(previousSlide,3000);
+});
 
 
 // ***************************
