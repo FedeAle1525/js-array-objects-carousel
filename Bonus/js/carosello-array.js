@@ -1,4 +1,4 @@
-// 1. Creo un Array di immagini
+// 1. Creo un Array di Oggetti che rappresentano le Slide
 const slides = [
   
   {
@@ -43,6 +43,7 @@ const carosello = document.getElementById('carousel');
 //   // const srcImg = slides[i].image;
 //   // const titleImg = slides[i].title;
 //   // const textImg = slides[i].text;
+// DESTRUTTURAZIONE: {secImage, titleImg, textImg} = slide;
 
 //   const slideEl = document.createElement('div');
 //   slideEl.classList.add('slide');
@@ -62,17 +63,21 @@ const carosello = document.getElementById('carousel');
 // }
 
 // 3. Creo Markup HTML utilizzando Ciclo ForEach
+// La Destrutturazione può essere applicata direttamente come Parametro del Ciclo ForEach --> 
+// --> slides.forEach(({secImage, titleImg, textImg}) => ... ), si perde però l'opportunita di accedere all'elemento completo.
+
 slides.forEach((slide) => {
 
   const slideEl = document.createElement('div');
   slideEl.classList.add('slide');
 
-  const htmlSlide = 
-  `<img src=${slide.image} alt="">
-  <div class="slide-text">
-    <h4>${slide.title}</h4>
-    <p>${slide.text}</p>
-  </div>`;
+  const htmlSlide = `
+    <img src=${slide.image} alt="">
+    <div class="slide-text">
+      <h4>${slide.title}</h4>
+      <p>${slide.text}</p>
+    </div>
+  `;
 
   slideEl.innerHTML = htmlSlide;
 
@@ -96,10 +101,10 @@ const leftBtnArrow = document.getElementById('arrow-left');
 const rightBtnArrow = document.getElementById('arrow-right');
 console.log(leftBtnArrow,rightBtnArrow);
 
-// 7. Creo evento sul "pulsante freccia destro": scorrere le immagini al "click"
+// 7. Creo evento sul "pulsante freccia destro" con Funzione: scorrere le immagini al "click"
 rightBtnArrow.addEventListener('click', nextSlide);
 
-// 9. Creo evento sul "pulsante freccia sinistro": scorrere le immagini al click
+// 9. Creo evento sul "pulsante freccia sinistro" con Funzione: scorrere le immagini al click
 leftBtnArrow.addEventListener('click', previousSlide);
 
 // BONUS 3 - Autoplay
@@ -117,6 +122,10 @@ btnPlay.addEventListener("click", function(){
   clock = setInterval(nextSlide,3000);
 
 });
+// Altra funzionalità: l'Autoplay si parte quando l'Utente esce con il mouse fuori lo sider
+// carosello.addEventListener("mouseleave", function(){
+//   clock = setInterval(nextSlide,3000);
+// })
 
 // Creo evento "click" su pulsante Stop che avvia AutoPlay
 btnStop.addEventListener("click", function(){
@@ -125,6 +134,10 @@ btnStop.addEventListener("click", function(){
   clearInterval(clock);
 
 });
+// Altra funzionalità: l'Autoplay si ferma quando l'Utente entra con il mouse dentro lo sider
+// carosello.addEventListener("mouseenter", function(){
+//   clearInterval(clock);
+// });
 
 // Creo evento "click" su pulsante Rotate che inverte lo scorrimento dell'AutoPlay
 btnRotate.addEventListener("click", function(){

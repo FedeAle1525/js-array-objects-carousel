@@ -1,4 +1,4 @@
-// 1. Creo un Array di immagini
+// 1. Creo un Array di Oggetti che rappresentano le Slide
 const slides = [
   
   {
@@ -43,16 +43,18 @@ for (let i = 0; i < slides.length; i++){
   // const srcImg = slides[i].image;
   // const titleImg = slides[i].title;
   // const textImg = slides[i].text;
+  // DESTRUTTURAZIONE: {secImage, titleImg, textImg} = slide;
 
   const slideEl = document.createElement('div');
   slideEl.classList.add('slide');
 
-  const htmlSlide = 
-  `<img src=${slides[i].image} alt="">
-  <div class="slide-text">
-    <h4>${slides[i].title}</h4>
-    <p>${slides[i].text}</p>
-  </div>`;
+  const htmlSlide = `
+    <img src=${slides[i].image} alt="">
+      <div class="slide-text">
+        <h4>${slides[i].title}</h4>
+        <p>${slides[i].text}</p>
+      </div>
+  `;
 
   slideEl.innerHTML = htmlSlide;
 
